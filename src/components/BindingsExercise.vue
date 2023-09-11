@@ -10,8 +10,8 @@
             the comment with the property name "state.message" in the curlies.
             Check out what happens below. Now go change the value of message in
             our components script area and see what happens.
-          </p>
-          <p>{{}}</p>
+          </p>````
+          <p>{{ state.message }}</p> <!-- <-- here is where you get things to screen -->
         </div>
         <div class="border p-1">
           <h5>Two Way Data Binding</h5>
@@ -22,7 +22,7 @@
             value changes.
           </p>
           <!-- add a v-model to this input that will reference "myName" within the state object-->
-          <input />
+          <input v-model="state.myName" />
           <!-- reference "myName" from the state -->
           <p>{{}}</p>
         </div>
@@ -34,8 +34,8 @@
             elements class list. Then change the value of that data
             property(isActive) to true. Notice Vue will rerender each time the
             value changes.
-          </p>
-          <div class="red">
+          </p> <!--           ⬇️ added whole ':class="{}"' portion-->
+          <div class="red" :class="{ active: state.isActive }">
             <!-- add a class binding attribute to the p tag that references the state isActive value -->
             <p>This text will turn green on active</p>
           </div>
@@ -54,9 +54,11 @@ export default {
     // NOTE typically state will be abstracted to a global AppState
     const state = reactive({
       //create a property called myName and set its value to "type your name here"
+      myName: "type your name here",
       message: "Super secret message here!",
-      //change isActive to true
-      isActive: false,
+      //change isActive to true ✅?
+      // isActive: false,
+      isActive: true,
     });
     return { state };
   },

@@ -35,8 +35,8 @@
         <p>Results for message: {{ state.message }}</p>
         <h3>State</h3>
         <p>
-          Before we move on, lets pause and talk about the <em><b>State</b></em
-          >. Inside of our <em>setup</em> method we are creating a
+          Before we move on, lets pause and talk about the <em><b>State</b></em>. Inside of our <em>setup</em> method we
+          are creating a
           <em>reactive</em> object we are calling <b>state</b>, this object is
           used to hold all the information that is unique to this page, allowing
           us to manage and maintain the "state" of the component in use. It is
@@ -56,7 +56,7 @@
           render that new value in our html.
         </p>
         <p>For example:</p>
-        <pre><code class="language-markup">{{state.note}}
+        <pre><code class="language-markup">{{ state.note }}
 &lt;input v-model="state.myName"&gt;
 &lt;p&gt;Hello <span>{{ state.val2 }},</span>&lt;/p&gt;</code></pre>
         <pre><code class="language-javascript">export default {
@@ -90,7 +90,7 @@
         </p>
         <p>For example:</p>
         <h5>Class Binding</h5>
-        <pre><code class="language-markup">{{state.note2}}
+        <pre><code class="language-markup">{{ state.note2 }}
 &lt;p :class="{ active: state.isActive }"&gt;This text will turn green on active&lt;/p&gt;</code></pre>
         <pre><code class="language-javascript">export default {
     name: 'bindings-exercise',
@@ -155,7 +155,9 @@ export default {
       val2: "{{ state.myName }}",
       val3: "{{ state.message }}",
       message: "Hello World!",
+      // message: "{{ state.message }}", one-way exercise ✅?
       myName: "Type your name here",
+      // myName: "{{state.message}}",
     });
 
     return {

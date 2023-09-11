@@ -14,19 +14,19 @@
             Then use the index to print the players place in the collection.
           </p>
           <!-- add the v-for to player-card -->
-          <div class="player-card text-center">
-            <h5>{{}}</h5>
-            <div>
-              <img class="img" src="" />
+          <div class="player-card text-center" v-for="player in state.players">
+            <h5>{{ player.name }}</h5>
+            <div> <!--        ⬇️ binding added-->
+              <img class="img" :src="player.photo" />
             </div>
             <div>
-              <span>{{}}</span>
+              <span>{{ player.position }}</span>
             </div>
             <div>
-              <span>{{}}</span>
+              <span>{{ player.number }}</span>
             </div>
             <div>
-              <span>{{}}</span>
+              <span>{{ player.secretSkill }}</span>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
             value contained at that key.
           </p>
           <div class="blog" v-for="(value, key) in state.blog" :key="key">
-            <p>{{}}: {{}}</p>
+            <p>{{ key }}: {{ value }}</p> <!--just plug in in the order stated in looping view-->
           </div>
         </div>
       </div>
@@ -66,18 +66,24 @@ export default {
           name: "Mick",
           position: "WR",
           number: 4,
+          // added
+          secretSkill: 'Fireball'
         },
         {
           photo: "https://robohash.org/Jeremy",
           name: "Jeremy",
           position: "TE",
           number: 13,
+          // added
+          secretSkill: 'Super stealth'
         },
         {
           photo: "https://robohash.org/Jake",
           name: "Jake",
           position: "QB",
           number: 1,
+          // added
+          secretSkill: 'Instruct madness'
         },
       ],
     });
