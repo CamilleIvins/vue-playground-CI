@@ -10,7 +10,7 @@
             screen.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="player-card text-center" v-if="state.showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -67,23 +67,23 @@
             to add another condition.
           </p>
           <!-- v-if comparing grade and 90 -->
-          <div>
+          <div v-if="state.grade >= 45">
             <p>The grade is 'A'.</p>
           </div>
           <!-- v-else-if comparing grade and 80 -->
-          <div>
+          <div v-else-if="state.grade <= 44 && >= 40">
             <p>The grade is 'B'.</p>
           </div>
           <!-- v-else-if comparing grade and 70 -->
-          <div>
+          <div v-else-if="state.grade <= 39 && >= 35">
             <p>The grade is 'C'.</p>
           </div>
           <!-- v-else-if comparing grade and 60 -->
-          <div>
+          <div v-else-if="state.grade <= 34 && >= 30">
             <p>The grade is 'D'.</p>
           </div>
           <!-- v-else to display if all the others fail -->
-          <div>
+          <div v-else="state.grade <= 29">
             <p>The grade is 'F'.</p>
           </div>
         </div>
@@ -93,7 +93,7 @@
             Change the v-if directive to a v-show on the "player-card" element
             below.
           </p>
-          <div class="player-card text-center area" v-show="state.player.id">
+          <div class="player-card text-center area" v-if="state.showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -129,8 +129,10 @@ export default {
   setup() {
     // NOTE typically state will be abstracted to a global AppState
     const state = reactive({
-      //add a property to toggle the player-card here.
+      //add a property to toggle the player-card here. ✅ below
+      showPlayer: true,
       //add a property to set the number value here.
+      grade: 50,
       player: {
         photo: "https://robohash.org/Mick",
         name: "Mick",
