@@ -71,15 +71,15 @@
             <p>The grade is 'A'.</p>
           </div>
           <!-- v-else-if comparing grade and 80 -->
-          <div v-else-if="state.grade <= 44 && >= 40">
+          <div v-else-if="40 <= state.grade">
             <p>The grade is 'B'.</p>
           </div>
           <!-- v-else-if comparing grade and 70 -->
-          <div v-else-if="state.grade <= 39 && >= 35">
+          <div v-else-if="35 <= state.grade">
             <p>The grade is 'C'.</p>
           </div>
           <!-- v-else-if comparing grade and 60 -->
-          <div v-else-if="state.grade <= 34 && >= 30">
+          <div v-else-if="state.grade >= 30">
             <p>The grade is 'D'.</p>
           </div>
           <!-- v-else to display if all the others fail -->
@@ -93,7 +93,7 @@
             Change the v-if directive to a v-show on the "player-card" element
             below.
           </p>
-          <div class="player-card text-center area" v-if="state.showPlayer">
+          <div class="player-card text-center area" v-show="state.showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
